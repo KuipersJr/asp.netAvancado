@@ -8,6 +8,7 @@ using Empresa.Repositorio.SqlServer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Empresa.Mvc.Controllers
 {
@@ -15,6 +16,7 @@ namespace Empresa.Mvc.Controllers
     {
         private readonly EmpresaDbContex _contexto;
         private IDataProtector _protectorProvider;
+        private IConfiguration _configuracao;
 
         public HomeController(EmpresaDbContex contexto, IDataProtectionProvider protetionProvider,
             IConfiguration configuracao)
@@ -22,18 +24,24 @@ namespace Empresa.Mvc.Controllers
             _contexto = contexto;
             _protectorProvider = protetionProvider.CreateProtector(
                 configuracao.GetSection("ChaveCriptografia").Value);
+            _configuracao = configuracao;
         }
         public IActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrador, Vendedor")]
         public IActionResult About()
-        {
+        {          
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
+        public IActionResult AcessoNegado()
+        {   
+            return View();
+        }
+
 
         public IActionResult Contact()
         {
@@ -70,10 +78,28 @@ namespace Empresa.Mvc.Controllers
             var claimns = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, contato.Nome),
-                new Claim(ClaimTypes.Email,contato.Email) 
+                new Claim(ClaimTypes.Email,contato.Email),
+
+                new Claim(ClaimTypes.Role,"Vendedor"), 
+                new Claim(ClaimTypes.Role,"Consultor"), 
+                new Claim(ClaimTypes.Role,"Contabil")
+                
+             //   new Claim("Contatos","Inserir") 
+                
             };
+
+            var indentidade = new ClaimsIdentity(claimns, _configuracao.GetSection("TipoAutencicacao").Value);
+            var principal = new ClaimsPrincipal(indentidade);
+
+            HttpContext.Authentication.SignInAsync(_configuracao.GetSection("TipoAutencicacao").Value,principal);
 
             return RedirectToAction("Index","Home");
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Authentication.SignOutAsync(_configuracao.GetSection("TipoAutencicacao").Value);
+            return View("Index");
+        }
+
     }
 }

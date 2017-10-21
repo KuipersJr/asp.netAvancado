@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Empresa.Repositorio.SqlServer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Empresa.Mvc
 {
@@ -54,6 +55,14 @@ namespace Empresa.Mvc
             }
 
             app.UseStaticFiles();
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions {
+                AuthenticationScheme = Configuration.GetSection("TipoAutencicacao").Value,
+                LoginPath = new PathString("/Home/Login"),
+                AccessDeniedPath = new PathString("/Home/AcessoNegado"),
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true
+            });
 
             app.UseMvc(routes =>
             {

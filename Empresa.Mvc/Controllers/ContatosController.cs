@@ -32,8 +32,19 @@ namespace Empresa.Mvc.Controllers
 
         public IActionResult Create()
         {
+            if (User.HasClaim("Contatos", "Inserir"))
+            {
+                return View();
+            }
+
+            return RedirectToAction("AcessoNegado", "Home");
+        }
+
+        public IActionResult AcessoNegado()
+        {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(Contato contato)
         {
