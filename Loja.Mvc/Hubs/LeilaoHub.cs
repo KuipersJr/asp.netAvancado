@@ -12,5 +12,10 @@ namespace Loja.Mvc.Hubs
         {
             Clients.All.hello();
         }
+
+        public void Participar()
+        {
+
+        }
     }
 }
