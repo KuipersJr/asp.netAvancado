@@ -1,14 +1,11 @@
 ﻿@model IEnumerable< Loja.Mvc.Areas.Vendas.Models.ProdutoViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Produtos em Leião";
 }
 
-<h2>Index</h2>
+<h2>Produtos em Leião</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -50,12 +47,21 @@
         <td>
             <img src="~/ImagemProduto/Miniatura?produtoId=@item.Id" title="@item.Nome" class="img-circle" />
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        <td>            
+            @Html.ActionLink("Details", "Details", new { id=item.Id },new { target = "_blank" })             
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
+    <script type="text/javascript">
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy("LeilaoHub");
+        
+        hub.on("atualizarOfertas", function () { document.location.reload(); });
+        connection.start();
+    </script>
+}
