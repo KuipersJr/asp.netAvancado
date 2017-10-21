@@ -33,6 +33,8 @@ namespace Empresa.Mvc
             services.AddMvc();
             services.AddDbContext<EmpresaDbContex>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("EmpresaConnectionStrings")));
+
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
