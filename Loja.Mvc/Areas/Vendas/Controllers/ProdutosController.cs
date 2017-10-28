@@ -12,11 +12,15 @@ using Loja.Mvc.Hubs;
 
 namespace Loja.Mvc.Areas.Vendas.Controllers
 {
+    using System.Web.Mvc;
+    [Authorize(Roles = "Master")]
+    [Authorize(Roles = "Admin,Leiloeiro")]
     public class ProdutosController : Controller
     {
         // ToDo: design pattern Unity of Work.
         private LojaDbContext db = new LojaDbContext();
-        private readonly IHubContext _leilaoHub = GlobalHost.ConnectionManager.GetHubContext<LeilaoHub>();
+        private readonly IHubContext _leilaoHub = GlobalHost.ConnectionManager.GetHubContext<LeilaoHub>();        
+
         // GET: Produtos
         public ActionResult Index()
         {
