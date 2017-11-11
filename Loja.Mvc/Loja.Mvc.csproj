@@ -194,6 +194,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Cookie.cs" />
+    <Compile Include="Helpers\CulturaHelpers.cs" />
     <Compile Include="Helpers\Mapeamento.cs" />
     <Compile Include="Areas\Vendas\Models\ProdutoViewModel.cs" />
     <Compile Include="Hubs\LeilaoHub.cs" />

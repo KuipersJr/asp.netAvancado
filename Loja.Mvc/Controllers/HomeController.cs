@@ -17,12 +17,12 @@ namespace Loja.Mvc.Controllers
 
         private void DefinirLinguagemPadrao()
         {
-            if (Request.Cookies[Cookie.LinguagemSelecionada.ToString()] != null)
+            if (Request.Cookies[Cookie.LinguagemSelecionada] != null)
             {
                 return;
             }
 
-            var linguagem = "pt-BR";
+            var linguagem = CulturaHelpers.LinguagemPadrao;
 
             if(Request.UserLanguages != null && 
                 Request.UserLanguages[0] != string.Empty)
@@ -31,7 +31,7 @@ namespace Loja.Mvc.Controllers
             }
 
             var linguagemSelecionadaCookie = 
-                new HttpCookie(Cookie.LinguagemSelecionada.ToString(),linguagem);
+                new HttpCookie(Cookie.LinguagemSelecionada,linguagem);
             linguagemSelecionadaCookie.Expires = DateTime.MaxValue;
             Response.Cookies.Add(linguagemSelecionadaCookie);
         }
@@ -45,7 +45,7 @@ namespace Loja.Mvc.Controllers
 
         public ActionResult DefinirLinguagem(string linguagem)
         {
-            Response.Cookies[Cookie.LinguagemSelecionada.ToString()].Value = linguagem;
+            Response.Cookies[Cookie.LinguagemSelecionada].Value = linguagem;
             return Redirect(Request.UrlReferrer.ToString());
         }
 

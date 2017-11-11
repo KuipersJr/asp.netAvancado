@@ -1,4 +1,6 @@
-﻿namespace Loja.Mvc.Helpers
+﻿using System.Collections.Generic;
+
+namespace Loja.Mvc.Helpers
 {
     public class Cookie
     {
