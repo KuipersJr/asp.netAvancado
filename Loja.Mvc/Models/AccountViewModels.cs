@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Loja.Mvc.Validacoes;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Loja.Mvc.Models
 {
+    using System;
+    using System.ComponentModel;
+    using System.Web.Mvc;
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -70,8 +74,13 @@ namespace Loja.Mvc.Models
         public string Nome { get; set; }
 
         [Required]
+        [DisplayName("Data de Nascimento")]
+        [IdadeMinima(18)]
+        public DateTime DataNascimento { get; set; }
+
+        [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Remote("VerificarDisponibilidadeEmail","Account",HttpMethod = "POST",ErrorMessage = "Email já cadastrado")]        
         public string Email { get; set; }
                 
         [Required]
