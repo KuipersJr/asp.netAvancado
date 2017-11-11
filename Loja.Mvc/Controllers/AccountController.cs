@@ -153,14 +153,17 @@ namespace Loja.Mvc.Controllers
             if (ModelState.IsValid)
             {
                 var user = new Usuario
-                { Nome = model.Nome,
-                    DataNascimento = new DateTime(1978,12,05),
+                {
+                    Nome = model.Nome,
+                    DataNascimento = new DateTime(1970, 12, 25),
                     UserName = model.Email,
-                    Email = model.Email };
-                var result = await UserManager.CreateAsync(Ususario, model.Password);
+                    Email = model.Email
+                };
+
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(Ususario, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -372,8 +375,13 @@ namespace Loja.Mvc.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new Usuario { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user);
+                var user = new Usuario {
+                    Nome = model.Nome,
+                    UserName = model.Email,
+                    Email = model.Email,
+                DataNascimento = new DateTime(1978,12,05)};
+
+                var result = await UserManager.CreateAsync(user );
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
