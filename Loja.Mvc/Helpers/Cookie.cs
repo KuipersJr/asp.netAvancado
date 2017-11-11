@@ -1,7 +1,7 @@
 ﻿namespace Loja.Mvc.Helpers
 {
-    public enum Cookie
+    public class Cookie
     {
-        LinguagemSelecionada
+        public const string LinguagemSelecionada = "LinguagemSelecionada";
     }
 }
