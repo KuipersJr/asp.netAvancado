@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Poker", "Poker", "{EA9FDC7E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Dominio", "..\Poker\Poker.Dominio\Poker.Dominio.csproj", "{B3C80BB0-92F1-44D0-838E-E0414893EDC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.DominioTests", "..\Poker\Poker.DominioTests\Poker.DominioTests.csproj", "{6257F488-C209-434D-86FF-5665529750B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{B3C80BB0-92F1-44D0-838E-E0414893EDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3C80BB0-92F1-44D0-838E-E0414893EDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3C80BB0-92F1-44D0-838E-E0414893EDC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6257F488-C209-434D-86FF-5665529750B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6257F488-C209-434D-86FF-5665529750B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6257F488-C209-434D-86FF-5665529750B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6257F488-C209-434D-86FF-5665529750B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +98,6 @@ Global
 		{65F013AB-8036-4C80-BBAC-3BC6387BB0EC} = {10D626C5-B89A-4BB0-869D-DDD709903C6F}
 		{648D9919-B7DC-4DFC-9B83-A2A1668925A2} = {10D626C5-B89A-4BB0-869D-DDD709903C6F}
 		{B3C80BB0-92F1-44D0-838E-E0414893EDC5} = {EA9FDC7E-1B6A-4084-9278-E28A5EBFE985}
+		{6257F488-C209-434D-86FF-5665529750B7} = {EA9FDC7E-1B6A-4084-9278-E28A5EBFE985}
 	EndGlobalSection
 EndGlobal
