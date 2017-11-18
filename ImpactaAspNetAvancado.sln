@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "login.Mvc", "login.Mvc\logi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.Resources", "Loja.Resources\Loja.Resources.csproj", "{65F013AB-8036-4C80-BBAC-3BC6387BB0EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.DominioTests", "Loja.DominioTests\Loja.DominioTests.csproj", "{648D9919-B7DC-4DFC-9B83-A2A1668925A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{65F013AB-8036-4C80-BBAC-3BC6387BB0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65F013AB-8036-4C80-BBAC-3BC6387BB0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65F013AB-8036-4C80-BBAC-3BC6387BB0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648D9919-B7DC-4DFC-9B83-A2A1668925A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648D9919-B7DC-4DFC-9B83-A2A1668925A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648D9919-B7DC-4DFC-9B83-A2A1668925A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648D9919-B7DC-4DFC-9B83-A2A1668925A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{E0188D8B-CA56-4868-838E-529C85ABD0A9} = {A3C8C2C2-500C-4C16-A52B-815C29B1B76E}
 		{DD7EDFCA-8F74-412C-897E-FCA850E2278A} = {BE08D476-8F07-47FE-8B5C-C9645A9C611F}
 		{65F013AB-8036-4C80-BBAC-3BC6387BB0EC} = {10D626C5-B89A-4BB0-869D-DDD709903C6F}
+		{648D9919-B7DC-4DFC-9B83-A2A1668925A2} = {10D626C5-B89A-4BB0-869D-DDD709903C6F}
 	EndGlobalSection
 EndGlobal
