@@ -32,10 +32,10 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Produtos", "Index", "Produtos", new { Area = "Vendas" }, new { })</li>
                             <li class="divider" />
-                            @if (User.IsInRole(Perfil.Comprador.ToString()))
-                            {
+                           @*@if (User.IsInRole(Perfil.Comprador.ToString()))
+                            {*@
                                 <li>@Html.ActionLink("Leilões", "Index", "leiloes", new { Area = "Vendas" }, new { })</li>
-                            }
+                            @*}*@
 
                         </ul>
                     </li>
