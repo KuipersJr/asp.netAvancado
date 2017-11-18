@@ -13,7 +13,7 @@ namespace Loja.Mvc.Areas.Vendas.Controllers
     using System.Security.Claims;
     using System.Web.Mvc;
     //[Authorize(Roles = "Master")]
-    [Authorize(Roles = "Admin,Leiloeiro,Comprador")]
+    //[Authorize(Roles = "Admin,Leiloeiro,Comprador")]
 
     public class LeiloesController : Controller
     {
@@ -47,6 +47,9 @@ namespace Loja.Mvc.Areas.Vendas.Controllers
             return View(Mapeamento.Mapear(produto));
         }
 
-
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
